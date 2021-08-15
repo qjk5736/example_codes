@@ -14,10 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.If not, see < https://www.gnu.org/licenses/>.
 //
-// This algorithm was uses calls to libjpeg-turbo https://github.com/libjpeg-turbo/libjpeg-turbo
+// This algorithm uses calls to libjpeg-turbo https://github.com/libjpeg-turbo/libjpeg-turbo
 //
 
-#include "image_paths.h"
 #include "image_reader.h"
 #include <jpeglib.h>
 #include <iostream>
@@ -95,11 +94,11 @@ namespace IRDR {
     struct jpeg_error_mgr err;
     JSAMPARRAY buffer;
     int version = 1;
-    FILE* fid;
 #ifdef _WIN32
+    FILE* fid;
     errno_t err1 = fopen_s(&fid, filnam, "rb");
 #else
-    FILE* fid = fopen(Name, "rb");
+    FILE* fid = fopen(filnam, "rb");
 #endif
     if (fid == NULL)
     {
