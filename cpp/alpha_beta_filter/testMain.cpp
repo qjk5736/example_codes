@@ -1,5 +1,5 @@
 //
-// Copyright 2021 DMJ Software Innovations LLC
+// Copyright 2021 John I. Krassikoff
 //
 // This program is free software : you can redistribute itand /or modify
 // it under the terms of the GNU General Public License as published

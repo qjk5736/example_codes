@@ -1,5 +1,5 @@
 //
-// Copyright 2021 DMJ Software Innovations LLC
+// Copyright 2021 John I Krassikoff
 //
 // This program is free software : you can redistribute itand /or modify
 // it under the terms of the GNU General Public License as published
@@ -16,6 +16,7 @@
 //
 // This algorithm was derived and extended from 
 // text at: https://en.wikipedia.org/wiki/Alpha_beta_filter
+// governed by the Creative Commons Attribution-ShareAlike License
 //
 #pragma once
 
