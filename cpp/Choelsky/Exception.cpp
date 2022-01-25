@@ -1,5 +1,5 @@
 //
-// Copyright 2021 DMJ Software Innovations LLC
+// Copyright 2022 John I. Krassikoff
 //
 // This program is free software : you can redistribute itand /or modify
 // it under the terms of the GNU General Public License as published
@@ -14,20 +14,4 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.If not, see < https://www.gnu.org/licenses/>.
 //
-// This algorithm was uses calls to libjpeg-turbo https://github.com/libjpeg-turbo/libjpeg-turbo
-//
-
-#include "image_reader.h"
-#include <string>
-// #include <map>
-
-int main(int, const char* const [])
-{
-  // Compiled and built using C++17 switches.
-  std::string hiLevelDir = "E:/Dev/flower_photos/flower_photos"; // Local jpg directories.
-  IRDR::image_reader* imgRdr = new IRDR::image_reader(hiLevelDir);
-  // auto image_store = std::make_unique<std::map<std::string, std::vector<unsigned short>>>();
-  imgRdr->run();
-  delete imgRdr;
-  return 0;
-}
+#include "Exception.h"
