@@ -1,4 +1,4 @@
 # code_snippets
-Initial repository to get used to the process. Contains snippets of working code.
+Initial repository to get used to the process. Contains short snippets of representative code.
 
 Initial test - Replace with real readme.
