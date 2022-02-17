@@ -5,7 +5,7 @@ A few short programs to show some of my coding styles.
 1) C plus plus
 
 alpha_beta_filter
-	Implementations of basic alpha-beta filters. Build 
+	Implementation of basic a alpha-beta filter. Build 
 	with CMake.
 Cholesky
 	Template implementation of the Cholesky decomposition. 
@@ -22,6 +22,10 @@ GaussJordanTest
 	equations by Gauss-Jordan elimination. Uses a module to 
 	contain the allocatable array and a subroutine to calculate 
 	the GJE steps. Build on command line.
+
+Objects
+	A simple program showing a little OOP capability. Includes a
+	driver file and a module. Build on command line.
 
 3) Julia
 
