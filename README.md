@@ -18,7 +18,7 @@ A few short programs to show some of my coding styles.
 	Applies an entropy calculation for an input matrix. Build 
 	with CMake where the entropy code is compiled first in to 
 	a library object which is then linked to the driver. The 
-	simple CMakeList.txt is included.
+	simple CMakeLists.txt is included.
 
 # 2) Fortran
 
