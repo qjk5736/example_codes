@@ -6,11 +6,13 @@ A few short programs to showcase some of my coding styles.
 
 ## alpha_beta_filter
 
-	Implementation of basic a alpha-beta filter. You can 
-	build with CMake using the included CMakeLists.txt.
+	Implementation of a basic alpha-beta filter from the 
+	wiki page. You can build this with CMake using the 
+	included CMakeLists.txt.
+	
 ## Cholesky
 
-	Template implementation of the Cholesky decomposition.
+	A template implementation of the Cholesky decomposition.
 	You can build this with the included Makefile.
 
 ## entropy_kernel_solver
