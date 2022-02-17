@@ -2,7 +2,7 @@
 
 A few short programs to show some of my coding styles.
 
-# 1) C plus plus
+# 1) C++
 
 ## alpha_beta_filter
 
