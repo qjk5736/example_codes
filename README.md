@@ -6,17 +6,19 @@ A few short programs to show some of my coding styles.
 
 ## alpha_beta_filter
 
-	Implementation of basic a alpha-beta filter. Build 
-	with CMake.
+	Implementation of basic a alpha-beta filter. You can 
+	build with CMake using the included CMakeLists.txt.
 ## Cholesky
 
-	Template implementation of the Cholesky decomposition. Build with Makefile.
+	Template implementation of the Cholesky decomposition.
+	You can build this with the included Makefile.
 
 ## entropy_kernel_solver
 
 	Applies an entropy calculation for an input matrix. Build 
 	with CMake where the entropy code is compiled first in to 
-	a library object which is then linked to the driver.
+	a library object which is then linked to the driver. The 
+	simple CMakeList.txt is included.
 
 # 2) Fortran
 
