@@ -17,7 +17,7 @@ A few short programs to showcase some of my coding styles.
 
 ## entropy_kernel_solver
 
-	Applies an entropy calculation for an input matrix. Build 
+	Applies an entropy calculation for an input kernel. Build 
 	with CMake where the entropy code is compiled first in to 
 	a library object which is then linked to the driver. The 
 	simple CMakeLists.txt is included.
