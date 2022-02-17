@@ -1,6 +1,6 @@
 # code_snippets
 
-A few short programs to show some of my coding styles.
+A few short programs to showcase some of my coding styles.
 
 # 1) C++
 
