@@ -25,12 +25,14 @@ A few short programs to show some of my coding styles.
 	A program incorporating the solution of 3 simultaneous
 	equations by Gauss-Jordan elimination. Uses a module to 
 	contain the allocatable array and a subroutine to calculate 
-	the GJE steps. Build on command line.
+	the GJE steps. Build on command line with the command listed
+	in the file.
 
 ## Objects
 
 	A simple program showing a little OOP capability. Includes a
-	driver file and a module. Build on command line.
+	driver file and a module. Build on command line with command
+	listed in the main.f90 file.
 
 # 3) Julia
 
