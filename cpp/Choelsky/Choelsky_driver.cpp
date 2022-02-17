@@ -43,7 +43,7 @@ int main()
   std::vector<std::vector<float> > vect_res(3, std::vector<float>(3) );
   try
   {
-    bool success = Choelsky(std::move(vect_inp), vect_res);
+    success = Choelsky(std::move(vect_inp), vect_res);
     std::cout << "Output vector." << std::endl;
     for (size_t i = 0; i < vect_res.size(); i++)
     {
