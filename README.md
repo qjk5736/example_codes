@@ -1,6 +1,6 @@
 # code_snippets
 
-A few short programs to showcase some of my coding styles.
+A few toy programs.
 
 # 1) C++
 
@@ -37,6 +37,10 @@ A few short programs to showcase some of my coding styles.
 	A simple program showing a little OOP capability. Includes a
 	driver file and a module. Build on command line with command
 	listed in the main.f90 file.
+
+## Simple_Class
+
+	A simple Fortran type(class). Build from command line.
 
 # 3) Julia
 
