@@ -1,6 +1,6 @@
 # code_snippets
 
-A few toy programs.
+A few example programs.
 
 # 1) C++
 
