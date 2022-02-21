@@ -19,10 +19,10 @@
 
 #include <string>
 
-class ChoelskyException
+class CholeskyException
 {
 public:
-	ChoelskyException(std::string str) : _msg(str) {}
+	CholeskyException(std::string str) : _msg(str) {}
 	std::string getMessage() {
 		return _msg;
 	}

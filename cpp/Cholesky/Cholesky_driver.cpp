@@ -18,12 +18,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Choelsky.h"
+#include "Cholesky.h"
 
 int main()
 {
   bool success = false;
-  std::cout << "Running Choelsky Decomposition using std::vectors.\n";
+  std::cout << "Running Cholesky Decomposition using std::vectors.\n";
   std::vector<std::vector<float>> vect_inp
   {
       {2., -1., 0.},
@@ -43,7 +43,7 @@ int main()
   std::vector<std::vector<float> > vect_res(3, std::vector<float>(3) );
   try
   {
-    success = Choelsky(std::move(vect_inp), vect_res);
+    success = Cholesky(std::move(vect_inp), vect_res);
     std::cout << "Output vector." << std::endl;
     for (size_t i = 0; i < vect_res.size(); i++)
     {
@@ -55,7 +55,7 @@ int main()
     }
     std::cout << std::endl;
   }
-  catch (ChoelskyException& e)
+  catch (CholeskyException& e)
   {
     std::cout << e.getMessage() << std::endl;
     // Do nothing else. Success is already false.
