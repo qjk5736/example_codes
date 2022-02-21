@@ -15,8 +15,8 @@
 // along with this program.If not, see < https://www.gnu.org/licenses/>.
 //
 
-#ifndef Choelsky_H
-#define Choelsky_H
+#ifndef Cholesky_H
+#define Cholesky_H
 
 #include <iostream>
 #include <vector>
@@ -32,7 +32,7 @@
 //
 
 template <class T>
-bool Choelsky(const std::vector<std::vector<T>> testArray, std::vector<std::vector<T>>& output)
+bool Cholesky(const std::vector<std::vector<T>> testArray, std::vector<std::vector<T>>& output)
 {
   size_t sz = testArray.size();
   std::vector<std::vector<float> > L(sz, std::vector<float>(sz));
@@ -44,7 +44,7 @@ bool Choelsky(const std::vector<std::vector<T>> testArray, std::vector<std::vect
   if (test_value <= static_cast<T>(0))
   {
     std::cerr << " Error! Ill-formed matrix in Choelsky function!" << std::endl;
-    throw ChoelskyException("ill-formed matrix");
+    throw CholeskyException("ill-formed matrix");
   }
   factor = std::sqrt(testArray[0][0]);
   for (index = 0; index < sz; index++)
@@ -62,7 +62,7 @@ bool Choelsky(const std::vector<std::vector<T>> testArray, std::vector<std::vect
     if (test_value <= static_cast<T>(0))
     {
       std::cerr << " Error! Radicand is not positive!" << std::endl;
-      throw ChoelskyException("not_positive_definite");
+      throw CholeskyException("not_positive_definite");
     }
     L[row][col] = std::sqrt(test_value - sum);
     sum = 0.0;
@@ -91,4 +91,4 @@ bool Choelsky(const std::vector<std::vector<T>> testArray, std::vector<std::vect
 }
 
 
-#endif /* Choelsky_H */
+#endif /* Cholesky_H */

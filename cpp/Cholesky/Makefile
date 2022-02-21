@@ -1,14 +1,14 @@
-exenamed = ChoelskyDecompD.exe	
-exenamer = ChoelskyDecompR.exe	
+exenamed = CholeskyDecompD.exe	
+exenamer = CholeskyDecompR.exe	
 
 sources =	\
 Exception.cpp	\
-Choelsky.cpp	\
-Choelsky_driver.cpp
+Cholesky.cpp	\
+Cholesky_driver.cpp
 
 objects = $(patsubst %.cpp,%.o,$(sources))	
 
-CXX = /usr/bin/g++	
+CXX = g++	
 CXXFLAGS = -Wall -fPIC -std=c++11	
 
 ifeq "$(findstring release, $(MAKECMDGOALS))" ""	
