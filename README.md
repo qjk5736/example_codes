@@ -1,6 +1,6 @@
 # code_snippets
 
-A few example programs.
+A few simple example programs.
 
 # 1) C++
 
