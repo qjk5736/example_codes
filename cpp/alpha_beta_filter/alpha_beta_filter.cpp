@@ -40,7 +40,6 @@ void alpha_beta_filter::initialize(double dt, double xk_1, double vxk_1, double 
   _ayk_1 = 0.0;
 }
 
-
 std::array<double, 4> alpha_beta_filter::update(double x_measurement, double y_measurement, std::array<double, 4> state) {
   // The 2D alpha-beta filter.
   double xxk = _xk_1 + (_vxk_1 * _dt);

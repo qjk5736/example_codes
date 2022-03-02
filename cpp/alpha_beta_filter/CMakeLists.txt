@@ -22,7 +22,6 @@ add_library(
 	alpha_beta_filter.cpp
 ) 
 
-
 add_executable(${PROJECT_NAME} testMain.cpp)
 
 target_link_libraries( ${PROJECT_NAME} PRIVATE abf )
