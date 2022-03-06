@@ -47,5 +47,6 @@ A few simple example programs.
 ## ODE_solution_comparison
 
 	A simple program that codes solutions to an arbitrary PDE 
-	using the trapezoidal, Euler and explicit Runge-Kutta 
-	4th order methods. All are compared to truth.
+	using the trapezoidal, Euler, explicit Runge-Kutta 
+	4th order methods and the ODE library implementation. All 
+	are compared to truth. Written using Julia v1.6.5 LTS.
