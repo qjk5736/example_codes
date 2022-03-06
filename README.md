@@ -1,6 +1,6 @@
 # code_snippets
 
-A few example programs.
+A few simple example programs.
 
 # 1) C++
 
@@ -48,5 +48,4 @@ A few example programs.
 
 	A simple program that codes solutions to an arbitrary PDE 
 	using the trapezoidal, Euler and explicit Runge-Kutta 
-	4th order methods. All are compared to truth and the RK4 
-	solution from the DifferentialEquations.jl library.
+	4th order methods. All are compared to truth.
