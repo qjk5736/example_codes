@@ -78,14 +78,18 @@ function one_ode()
     trap_solution = trapezoidal(df, y0, a, h, max_points)
     euler_solution = euler(df, y0, a, h, max_points)
     rk4o_solution = explicit_rk4o(df, y0, a, h, max_points)
+    df(u,p,t)= u -1 + 2*t - t^2
+    lib_solution = solve(ODEProblem(df, y0, (a, b)))
     plot_range = a:0.2:b
-    Plots.plot(plot_range, f.(plot_range), label="f(t)", line=(:dot, 2), framestyle=:box, legend=:bottomleft, dpi=600)
+    plot0 = Plots.plot(plot_range, f.(plot_range), label="f(t)", line=(:dot, 2), framestyle=:box, legend=:bottomleft, dpi=600)
     Plots.plot!(trap_solution[:,1],trap_solution[:,2],markershape=:o, linetype=:scatter, label = "Trapezoidal")
     Plots.plot!(euler_solution[:,1],euler_solution[:,2],markershape=:o, linetype=:scatter, label = "Euler")
     Plots.plot!(rk4o_solution[:,1],rk4o_solution[:,2],markershape=:d, linetype=:scatter,label = "RK4")
-    title!("Solutions for f(t) = 1 - 0.5e^t + t^2")
+    Plots.plot!(lib_solution.t,lib_solution.u,markershape=:s,linetype=:scatter,label="Library RK4")
+    title!("Solutions for f(t) = 1 - 0.5e^t + t^2",titlefontsize=10,titlefontvalign=:bottom)
     ylabel!("Y")
     xlabel!("Time")
+    display(plot0)
     #
     savefig("plotOdeMethodComparison.png")
 end
