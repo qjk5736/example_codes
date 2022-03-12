@@ -53,6 +53,6 @@ A few simple example programs.
 
 ## module_sort_example
 
-	An simpel example of using modules in an executive file. 
+	An simple example of using modules in an executive file. 
 	There are two modules. One is for a Bubble sort and the 
 	other is a Selection sort.
