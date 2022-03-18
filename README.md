@@ -25,7 +25,7 @@ A few simple example programs.
 ## views_and_Fibonacci
 
 	A little fun with Fibonacci numbers. This code generates a 
-	vector Fibonacci numbers and uses std::ranges and std::views 
+	vector of Fibonacci numbers and uses std::ranges and std::views 
 	syntax to square the evens and odds in separate functions 
 	with Lambda expressions. Compile from the command line but you 
 	will need a C++20 capable compiler with std::views.
