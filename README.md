@@ -50,3 +50,9 @@ A few simple example programs.
 	using the trapezoidal, Euler, explicit Runge-Kutta 
 	4th order methods and the ODE library implementation. All 
 	are compared to truth. Written using Julia v1.6.5 LTS.
+
+## module_sort_example
+
+	An simple example of using modules in an executive file. 
+	There are two modules. One is for a Bubble sort and the 
+	other is a Selection sort. Written using Julia v1.6.5 LTS.
