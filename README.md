@@ -22,6 +22,14 @@ A few simple example programs.
 	a library object which is then linked to the driver. The 
 	simple CMakeLists.txt is included.
 
+## views_and_Fibonacci
+
+	A little fun with Fibonacci numbers. This code generates a 
+	vector Fibonacci numbers and uses std::ranges and std::views 
+	syntax to square the evens and odds in separate functions 
+	with Lambda expressions. Compile from the command line but you 
+	will need a C++20 capable compiler with std::views.
+
 # 2) Fortran
 
 ## GaussJordanTest
