@@ -64,3 +64,11 @@ A few simple example programs.
 	An simple example of using modules in an executive file. 
 	There are two modules. One is for a Bubble sort and the 
 	other is a Selection sort. Written using Julia v1.6.5 LTS.
+
+# 4) Python
+
+## ch9_dynamics
+
+	This is an implementation of the algorithm in
+	the Feynman Lectures on Physics Vol. I Ch. 9
+	Newton's Laws of Mechanics, Section 9_6.
