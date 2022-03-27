@@ -6,9 +6,10 @@ A few simple example programs.
 
 ## alpha_beta_filter
 
-	Implementation of a basic alpha-beta filter from the 
-	wiki page. You can build this with CMake using the 
-	included CMakeLists.txt.
+	Implementation of a basic alpha-beta filter with
+	an algorithm extracted from the wiki page. You can 
+	build this with CMake using the included 
+	CMakeLists.txt.
 	
 ## Cholesky
 
