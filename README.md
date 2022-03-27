@@ -31,7 +31,7 @@ A few example programs.
 
 # 2) Fortran
 
-## GaussJordanTest
+## GaussJordan
 
 	A program incorporating the solution of 3 simultaneous
 	equations by Gauss-Jordan elimination. Uses a module to 
