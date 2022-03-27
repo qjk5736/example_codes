@@ -15,12 +15,10 @@ A few simple example programs.
 	A template implementation of the Cholesky decomposition.
 	You can build this with the included Makefile.
 
-## entropy_kernel_solver
+## doubly_linked_list_with_reverse
 
-	Applies an entropy calculation for an input kernel. Build 
-	with CMake where the entropy code is compiled first in to 
-	a library object which is then linked to the driver. The 
-	simple CMakeLists.txt is included.
+	A basic doubly linked list template with a reverse function
+	and some exception handling. Build from command line.
 
 ## views_and_Fibonacci
 
