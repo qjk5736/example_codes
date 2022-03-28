@@ -71,3 +71,11 @@ A few example programs.
 	This is an implementation of the algorithm in
 	the Feynman Lectures on Physics Vol. I Ch. 9
 	Newton's Laws of Mechanics, Section 9_6.
+
+## keras_1d_cnn_time_series
+
+	A 1 dimensional CNN for processing of time-series data.
+	The fitted model is used to calculate a naive prediction
+	from sample test data. This is the core of a more stable
+	and complete construction. Uses Keras and Tensorflow.
+
