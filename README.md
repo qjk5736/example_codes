@@ -1,26 +1,25 @@
 # code_snippets
 
-A few simple example programs.
+A few example programs.
 
 # 1) C++
 
 ## alpha_beta_filter
 
-	Implementation of a basic alpha-beta filter from the 
-	wiki page. You can build this with CMake using the 
-	included CMakeLists.txt.
+	Implementation of a basic alpha-beta filter with
+	an algorithm extracted from the wiki page. You can 
+	build this with CMake using the included 
+	CMakeLists.txt.
 	
 ## Cholesky
 
 	A template implementation of the Cholesky decomposition.
 	You can build this with the included Makefile.
 
-## entropy_kernel_solver
+## doubly_linked_list_with_reverse
 
-	Applies an entropy calculation for an input kernel. Build 
-	with CMake where the entropy code is compiled first in to 
-	a library object which is then linked to the driver. The 
-	simple CMakeLists.txt is included.
+	A basic doubly linked list template with a reverse function
+	and some exception handling. Build from command line.
 
 ## views_and_Fibonacci
 
@@ -32,7 +31,7 @@ A few simple example programs.
 
 # 2) Fortran
 
-## GaussJordanTest
+## GaussJordan
 
 	A program incorporating the solution of 3 simultaneous
 	equations by Gauss-Jordan elimination. Uses a module to 
