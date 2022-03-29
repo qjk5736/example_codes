@@ -42,10 +42,14 @@ def subdivide_data_array(data_array, number_of_data_points, number_of_chunks):
 
 def construct_model(number_of_chunks, number_of_features):
     model = Sequential()
-    model.add(Conv1D(filters=32, kernel_size=3, activation='relu', input_shape=(number_of_chunks, number_of_features)))
+    model.add(Conv1D(filters=128, kernel_size=3, activation='relu', input_shape=(number_of_chunks, number_of_features)))
     model.add(MaxPooling1D(pool_size=2))
     model.add(Flatten())
-    model.add(Dense(50, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(32, activation='relu'))
+    model.add(Dense(16, activation='relu'))
+    model.add(Dense(8, activation='relu'))
+    model.add(Dense(2, activation='relu'))
     model.add(Dense(1))
     model.compile(optimizer='adam', loss='mse')
     return model
@@ -82,7 +86,7 @@ def execute():
     data_array = tmp_array[0,:]
     test_input = np.sort(data_array[100:1124])
     stride = 4
-    num_epochs = 500
+    num_epochs = 1000
     number_of_features = 1
     number_of_data_points = len(data_array)
     number_of_chunks = (int)(number_of_data_points/stride)
