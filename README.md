@@ -74,8 +74,7 @@ A few example programs.
 
 ## keras_1d_cnn_time_series
 
-	A 1 dimensional CNN for processing of time-series data.
-	The fitted model is used to calculate a naive prediction
-	from sample test data. This is the core of a more stable
-	and complete construction. Uses Keras and Tensorflow.
+	A little fun with 1 dimensional CNN for processing of time-series
+	data. The fitted model is used to calculate a naive prediction
+	from sample test data. Uses Keras and Tensorflow.
 
