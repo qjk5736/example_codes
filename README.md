@@ -10,7 +10,14 @@ A few example programs.
 	an algorithm extracted from the wiki page. You can 
 	build this with CMake using the included 
 	CMakeLists.txt.
-	
+
+## ch9_dynamics_cpp
+
+	This is an C++ implementation of the algorithm in
+	the Feynman Lectures on Physics Vol. I Ch. 9
+	Newton's Laws of Mechanics, Section 9_6. Includes
+	a gnuplot script to plot the output dat file.
+
 ## Cholesky
 
 	A template implementation of the Cholesky decomposition.
