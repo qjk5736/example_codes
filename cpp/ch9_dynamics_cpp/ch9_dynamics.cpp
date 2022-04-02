@@ -19,10 +19,10 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <tuple>
+//#include <tuple>
 #include <vector>
 #include <array>
-#include <utility>
+//#include <utility>
 #include <iostream>
 
 import newtonian_dynamics;
