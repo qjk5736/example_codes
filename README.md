@@ -13,8 +13,8 @@ A few example programs.
 
 ## ch9_dynamics_cpp
 
-	This is an C++ implementation of the algorithm in
-	the Feynman Lectures on Physics Vol. I Ch. 9
+	This is an C++ module implementation of the algorithm
+	in the Feynman Lectures on Physics Vol. I Ch. 9
 	Newton's Laws of Mechanics, Section 9_6. Includes
 	a gnuplot script to plot the output dat file.
 
