@@ -27,6 +27,12 @@ A few example programs.
 
 	A basic doubly linked list template with a reverse function
 	and some exception handling. Build from command line.
+	
+## matrix_multiply
+
+	The code in multipy_row_major_vectors.cpp performs the 
+	mulitplication of arbitrarily sized matrices represented 
+	as row major vectors. The multiplication is timed using chrono.
 
 ## views_and_Fibonacci
 
