@@ -30,6 +30,7 @@ os.environ['KERAS_BACKEND'] = 'Tensorflow'
 def subdivide_data_array(data_array, number_of_data_points, number_of_chunks):
     x1 = list()
     x2 = list()
+    tst = list()
     end_idx_location = 0
     last_valid_location = number_of_data_points - 1
     for idx in range(number_of_data_points):
@@ -38,7 +39,11 @@ def subdivide_data_array(data_array, number_of_data_points, number_of_chunks):
             break
         x1.append(data_array[idx:end_idx_location])
         x2.append(data_array[end_idx_location])
-    return np.array(x1), np.array(x2)
+    for idx in range(3072,number_of_data_points):
+        tst.append(data_array[idx])
+    print(' x1.len(): ', len(x1), flush=True)
+    print(' x2.len(): ', len(x2), flush=True)
+    return np.array(x1), np.array(x2), np.array(tst)
 
 def construct_model(number_of_chunks, number_of_features):
     model = Sequential()
@@ -46,12 +51,8 @@ def construct_model(number_of_chunks, number_of_features):
     model.add(MaxPooling1D(pool_size=2))
     model.add(Flatten())
     model.add(Dense(64, activation='relu'))
-    model.add(Dense(32, activation='relu'))
-    model.add(Dense(16, activation='relu'))
-    model.add(Dense(8, activation='relu'))
-    model.add(Dense(2, activation='relu'))
     model.add(Dense(1))
-    model.compile(optimizer='adam', loss='mse')
+    model.compile(optimizer='Adagrad', loss='mse')
     return model
 
 def fit_model(model, x1, x2, num_epochs):
@@ -63,13 +64,16 @@ def naive_prediction_from_model(model, test_input, number_of_chunks, number_of_f
     predicted = model.predict(test_input, verbose=0)
     return predicted
 
-def generate_model(data_array, test_input, stride, number_of_data_points, number_of_chunks, number_of_features, num_epochs):
+def generate_model(data_array, number_of_data_points, number_of_chunks, number_of_features, num_epochs):
     predicted = 0
-    x1, x2 = subdivide_data_array(data_array, number_of_data_points, number_of_chunks)
+    x1, x2, test_input = subdivide_data_array(data_array, number_of_data_points, number_of_chunks)
+    print(' x1.size(): ', np.size(x1), flush=True)
+    print(' x2.size(): ', np.size(x2), flush=True)
     x1 = x1.reshape((x1.shape[0], x1.shape[1], number_of_features))
+    print(' x1[10].size(): ', np.size(x1[10]), flush=True)
     model = construct_model(number_of_chunks, number_of_features)
     model = fit_model(model, x1, x2, num_epochs)
-    return model
+    return model, test_input
 
 def plot_data(data_array):
     fig, axs = plt.subplots(3, figsize=(10,5))
@@ -79,24 +83,28 @@ def plot_data(data_array):
     axs[2].plot(data_array[2,:], color = 'blue')
     plt.show()
 
-def execute():
+def execute(filnam):
     predicted = 0
-    tmp_array = np.load('test.npy')
-    #plot_data(tmp_array)
+    tmp_array = np.load(filnam)
     data_array = tmp_array[0,:]
-    test_input = np.sort(data_array[100:1124])
     stride = 4
     num_epochs = 1000
     number_of_features = 1
     number_of_data_points = len(data_array)
     number_of_chunks = (int)(number_of_data_points/stride)
     print('number_of_chunks: ', number_of_chunks)
-    model = generate_model(data_array, test_input, stride, number_of_data_points, number_of_chunks, number_of_features, num_epochs)
+    model, test_input = generate_model(data_array, number_of_data_points, number_of_chunks, number_of_features, num_epochs)
     prediction = naive_prediction_from_model(model, test_input, len(test_input), number_of_features)
+    #plt.figure(1)
+    #plt.plot(test_input)
+    #plt.show()
     print(' test_input: ', test_input, flush=True)
+    print(' max test_input: ', test_input.max(), flush=True)
+    print(' min test_input: ', test_input.min(), flush=True)
     print(' prediction: ', prediction, flush=True)
 
 if __name__=="__main__":
     print(' Running ',  flush=True)
-    execute()
+    filnam = 'test.npy'
+    execute(filnam)
     print(' Complete ',  flush=True)
