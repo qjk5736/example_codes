@@ -4,13 +4,6 @@ A few example programs.
 
 # 1) C++
 
-## alpha_beta_filter
-
-	Implementation of a basic alpha-beta filter with
-	an algorithm extracted from the wiki page. You can 
-	build this with CMake using the included 
-	CMakeLists.txt.
-
 ## ch9_dynamics_cpp
 
 	This is an C++ module implementation of the algorithm
@@ -33,6 +26,11 @@ A few example programs.
 	The code in multiply_row_major_vectors.cpp performs a 
 	mulitplication of arbitrarily sized matrices represented 
 	as row major vectors. The multiplication is timed using chrono.
+
+## simple_threebody_sim
+	This is an implementation of the threebody algorithm in
+	Projects in Scientific Computation, Richard Crandall, 1994
+	Section 2_4_1.
 
 ## views_and_Fibonacci
 
