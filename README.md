@@ -27,6 +27,9 @@ A few example programs.
 	mulitplication of arbitrarily sized matrices represented 
 	as row major vectors. The multiplication is timed using chrono.
 
+## simple_thread_test
+	Using std::thread to control manipulation of a std::queue.
+
 ## simple_threebody_sim
 	This is an implementation of the threebody algorithm in
 	Projects in Scientific Computation, Richard Crandall, 1994
