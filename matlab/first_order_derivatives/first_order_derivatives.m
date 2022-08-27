@@ -66,8 +66,8 @@ error_cel{3,1} = 'central';
 error_cel{4,1} = 'Richardson';
 fprintf('\t\t\t\t Error Table\n')
 fprintf('\t\tmethod\t min error\t max error\n\n')
-D = error_cel';
-D(2:end+1,:) = D;
-D(1,:) = {max(cellfun('length',error_cel(:,1)))};
-fprintf('\t%*s\t %3.5f\t %3.5f\n',D{:})
+transpose_error_cel = error_cel';
+transpose_error_cel(2:end+1,:) = transpose_error_cel;
+transpose_error_cel(1,:) = {max(cellfun('length',error_cel(:,1)))};
+fprintf('\t%*s\t %3.5f\t %3.5f\n',transpose_error_cel{:})
 end
