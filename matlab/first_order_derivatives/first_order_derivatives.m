@@ -25,7 +25,7 @@ f_x = @(x) (x.^2.*sin(x)-1/12.*x.^3);
 f_x_prime = @(x)(x.^2.*cos(x) + 2.*x.*sin(x) - (3/12).*x.^2);
 forward_derivative = @(f_x, x, h)((f_x(x+h)-f_x(x))/h);
 backward_derivative = @(f_x, x,h)((f_x(x)-f_x(x-h))/h);
-central_derivative = @(f_x, x,h)((f_x(x+h)-f_x(x-h))/(2.*h));
+central_derivative = @(f_x, x,h)((f_x(x+h)-f_x(x-h))/(2*h));
 richardson_derivative = @(f_x, x,h)(1/(12*h).*(f_x(x-2*h) ...
     - 8.*f_x(x-h) + 8.*f_x(x+h) - f_x(x+2*h))); 
 % Constants and variables
