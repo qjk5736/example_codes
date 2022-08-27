@@ -78,7 +78,18 @@ A few example programs.
 	There are two modules. One is for a Bubble sort and the 
 	other is a Selection sort. Written using Julia v1.6.5 LTS.
 
-# 4) Python
+# 4) Matlab
+
+## first_order_derivatives
+
+	A simple script that calculates first order derivatives of a 
+	continuous function. The derivative is evaluated using four
+	different schemes; forward, backward, central and Richardson.
+	The error of the four methods relative to the analytical result 
+	is plotted. A table of maximum and minimum values is printed 
+	to the commmand  window.
+
+# 5) Python
 
 ## ch9_dynamics
 
