@@ -15,8 +15,8 @@
 %   continuous function. The derivative is evaluated using four
 %   different schemes; forward, backward, central and Richardson.
 %   The error of the four methods relative to the analytical result 
-%   is plotted. A table of maximum and minimum values is printed 
-%   to the commmand  window.
+%   is plotted. A table of maximum and minimum values is displayed 
+%   in the commmand  window.
 %
 function first_order_derivatives()
 close all; clear variables;
@@ -55,7 +55,7 @@ box on
 grid on
 legend('forward','backward','central','Richardson', 'Location','South')
 title("analytical f'(x) = x^2cos(x) + (2x)sin(x) - (3/12)x^2")
-% Print a table of maximum and minimum values for each method.
+% Display a table of maximum and minimum values for each method.
 error_cel = num2cell([0, min(forward_error), max(forward_error); ...
     0, min(backward_error), max(backward_error); ...
     0, min(central_error), max(central_error); ...
@@ -64,10 +64,7 @@ error_cel{1,1} = 'forward';
 error_cel{2,1} = 'backward';
 error_cel{3,1} = 'central';
 error_cel{4,1} = 'Richardson';
-fprintf('\t\t\t\t Error Table\n')
-fprintf('\t\tmethod\t min error\t max error\n\n')
-transpose_error_cel = error_cel';
-transpose_error_cel(2:end+1,:) = transpose_error_cel;
-transpose_error_cel(1,:) = {max(cellfun('length',error_cel(:,1)))};
-fprintf('\t%*s\t %3.5f\t %3.5f\n',transpose_error_cel{:})
+error_table = cell2table(error_cel,...
+    "VariableNames",["method" "min error" "max error"]);
+disp(error_table);
 end
