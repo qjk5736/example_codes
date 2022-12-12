@@ -27,36 +27,36 @@
 namespace TBDY {
 
 	threebody_sim::threebody_sim()
-		: _N(1000)
-		, _filenam("default_threebody_positions.dat")
+		: N(1000)
+		, filenam("default_threebody_positions.dat")
 	{
-		_pos = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_vel = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_acc = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_residual = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_r_vec = { {0., 0., 0.} };
-		_func = { {0., 0., 0.} };
-		_mass = { {0., 0., 0.} };
+		this->pos = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->vel = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->acc = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->residual = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->r_vec = { {0., 0., 0.} };
+		this->func = { {0., 0., 0.} };
+		this->mass = { {0., 0., 0.} };
 	}
 
 	threebody_sim::threebody_sim(int number_of_steps, std::string filnam)
-		: _N(number_of_steps)
-		, _filenam(filnam)
+		: N(number_of_steps)
+		, filenam(filnam)
 	{
-		_pos = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_vel = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_acc = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_residual = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
-		_r_vec = { {0., 0., 0.} };
-		_func = { {0., 0., 0.} };
-		_mass = { {0., 0., 0.} };
+		this->pos = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->vel = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->acc = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->residual = { { {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.} } };
+		this->r_vec = { {0., 0., 0.} };
+		this->func = { {0., 0., 0.} };
+		this->mass = { {0., 0., 0.} };
 	}
 
 	void threebody_sim::print_header()
 	{
 		std::cout << "x1 y1 z1 x2 y2 z2 x3 y3 z3" << std::endl;
-		if (_output_file)
-			_output_file << "x1 y1 z1 x2 y2 z2 x3 y3 z3" << std::endl;
+		if (this->output_file)
+			this->output_file << "x1 y1 z1 x2 y2 z2 x3 y3 z3" << std::endl;
 	}
 
 	void threebody_sim::print_3_body_positions()
@@ -66,14 +66,14 @@ namespace TBDY {
 		{
 			for (int i = 0; i < DOF_PER_BODY; i++)
 			{
-				std::cout << std::setprecision(6) << _pos[j][i] << " ";
-				if (_output_file)
-					_output_file << std::setprecision(6) << _pos[j][i] << " ";
+				std::cout << std::setprecision(6) << this->pos[j][i] << " ";
+				if (this->output_file)
+					this->output_file << std::setprecision(6) << this->pos[j][i] << " ";
 			}
 		}
 		std::cout << std::endl;
-		if (_output_file)
-			_output_file << std::endl;
+		if (this->output_file)
+			this->output_file << std::endl;
 	}
 
 	void threebody_sim::update_position()
@@ -85,26 +85,26 @@ namespace TBDY {
 		for (j = 0; j < NUMBER_OF_BODIES; j++)
 		{
 			k = (j + 1) % NUMBER_OF_BODIES;
-			_r_vec[j] = 0;
+			this->r_vec[j] = 0;
 			for (i = 0; i < DOF_PER_BODY; i++)
 			{
-				_residual[j][i] = _pos[k][i] - _pos[j][i];
-				_r_vec[j] += _residual[j][i] * _residual[j][i];
+				this->residual[j][i] = this->pos[k][i] - this->pos[j][i];
+				this->r_vec[j] += this->residual[j][i] * this->residual[j][i];
 			}
-			// f'() = (-)G*M*m/(r^3/2), _residual term is included in the _position update.
-			_func[j] = -G * _mass[k] * _mass[j] / (_r_vec[j] * std::sqrt(_r_vec[j]));
+			// f'() = (-)G*M*m/(r^3/2), residual term is included in the position update.
+			this->func[j] = -G * this->mass[k] * this->mass[j] / (this->r_vec[j] * std::sqrt(this->r_vec[j]));
 		}
 		for (j = 0; j < NUMBER_OF_BODIES; j++)
 		{
 			k = (j + 2) % NUMBER_OF_BODIES;
 			for (i = 0; i < DOF_PER_BODY; i++)
 			{
-				// a = sum( f'() * _residual ) eq. 2.4.3
-				_acc[j][i] = _func[k] * _residual[k][i] - _func[j] * _residual[j][i];
+				// a = sum( f'() * residual ) eq. 2.4.3
+				this->acc[j][i] = this->func[k] * this->residual[k][i] - this->func[j] * this->residual[j][i];
 				// v = d * dt									eq. 2.4.3
-				_vel[j][i] += _acc[j][i] * DT;
+				this->vel[j][i] += this->acc[j][i] * DT;
 				// p = v * dt									eq. 2.4.3
-				_pos[j][i] += _vel[j][i] * DT;
+				this->pos[j][i] += this->vel[j][i] * DT;
 			}
 		}
 	}
@@ -117,45 +117,45 @@ namespace TBDY {
 		{
 			for (int i = 0; i < MEASUREMENT_AXES; i++)
 			{
-				_pos[j][i] = std::atoi(argv[arg_index]);
-				_vel[j][i] = std::atoi(argv[arg_index + 2]);
+				this->pos[j][i] = std::atoi(argv[arg_index]);
+				this->vel[j][i] = std::atoi(argv[arg_index + 2]);
 				arg_index++;
 			}
-			_mass[j] = M;
+			this->mass[j] = M;
 		}
-		_N = std::atoi(argv[arg_index]);
+		this->N = std::atoi(argv[arg_index]);
 	}
 
 	void threebody_sim::initialize_from_definition()
 	{
 		// Set the pre-defined test parameters.
 		// Body 1
-		_pos[0][0] = 75.00;
-		_pos[0][1] = 0.;
-		_pos[0][2] = 0.;
-		_vel[0][0] = 0.;
-		_vel[0][1] = 75.00;
-		_vel[0][2] = 0;
+		this->pos[0][0] = 75.00;
+		this->pos[0][1] = 0.;
+		this->pos[0][2] = 0.;
+		this->vel[0][0] = 0.;
+		this->vel[0][1] = 75.00;
+		this->vel[0][2] = 0;
 		// Body 2
-		_pos[1][0] = -37.50;
-		_pos[1][1] = 65.25;
-		_pos[1][2] = 0.;
-		_vel[1][0] = -65.25;
-		_vel[1][1] = -37.50;
-		_vel[1][2] = 0;
+		this->pos[1][0] = -37.50;
+		this->pos[1][1] = 65.25;
+		this->pos[1][2] = 0.;
+		this->vel[1][0] = -65.25;
+		this->vel[1][1] = -37.50;
+		this->vel[1][2] = 0;
 		// Body 3
-		_pos[2][0] = -37.50;
-		_pos[2][1] = -65.25;
-		_pos[2][2] = 0.;
-		_vel[2][0] = 65.25;
-		_vel[2][1] = -37.50;
-		_vel[2][2] = 0;
-		// _mass vector (M1, M2, M3)
-		_mass[0] = M;
-		_mass[1] = M;
-		_mass[2] = M;
+		this->pos[2][0] = -37.50;
+		this->pos[2][1] = -65.25;
+		this->pos[2][2] = 0.;
+		this->vel[2][0] = 65.25;
+		this->vel[2][1] = -37.50;
+		this->vel[2][2] = 0;
+		// mass vector (M1, M2, M3)
+		this->mass[0] = M;
+		this->mass[1] = M;
+		this->mass[2] = M;
 		// Number of steps to simulate.
-		_N = 100;
+		this->N = 100;
 	}
 
 	void threebody_sim::run_simulation(int argc, char** argv)
@@ -164,15 +164,15 @@ namespace TBDY {
 			initialize_from_definition();
 		else
 			initialize_from_cmd_line(argv);
-		_output_file.open(_filenam.c_str());
+		this->output_file.open(this->filenam.c_str());
 		print_header();
-		for (int sim_index = 0; sim_index < _N; sim_index++)
+		for (int sim_index = 0; sim_index < this->N; sim_index++)
 		{
 			//update_physics();
 			update_position();
 			print_3_body_positions();
 		}
-		if(_output_file) _output_file.close();
+		if(this->output_file) this->output_file.close();
 	}
 
 }

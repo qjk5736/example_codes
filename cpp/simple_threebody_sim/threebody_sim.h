@@ -56,15 +56,15 @@ public:
 
 private:
 
-  int _N;
-  std::string _filenam;
-  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> _pos;
-  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> _vel;
-  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> _acc;
-  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> _residual;
-  std::array<double, NUMBER_OF_BODIES> _r_vec;
-  std::array<double, NUMBER_OF_BODIES> _func;
-  std::array<double, NUMBER_OF_BODIES> _mass;
+  int N;
+  std::string filenam;
+  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> pos;
+  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> vel;
+  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> acc;
+  std::array<std::array<double, DOF_PER_BODY>, NUMBER_OF_BODIES> residual;
+  std::array<double, NUMBER_OF_BODIES> r_vec;
+  std::array<double, NUMBER_OF_BODIES> func;
+  std::array<double, NUMBER_OF_BODIES> mass;
 
   void print_header();
   void print_3_body_positions();
@@ -72,7 +72,7 @@ private:
   void initialize_from_cmd_line(char** argv);
   void initialize_from_definition();
   
-  std::ofstream _output_file;
+  std::ofstream output_file;
 
 };
 

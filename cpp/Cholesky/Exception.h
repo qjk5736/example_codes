@@ -22,12 +22,12 @@
 class CholeskyException
 {
 public:
-	CholeskyException(std::string str) : _msg(str) {}
+	CholeskyException(std::string str) : m_msg(str) {}
 	std::string getMessage() {
-		return _msg;
+		return m_msg;
 	}
 private:
-	std::string _msg;
+	std::string m_msg;
 };
 
 #endif /* Exception_H */

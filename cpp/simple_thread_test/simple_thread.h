@@ -44,25 +44,25 @@ namespace SIMQ {
 
     int q_pop()
     {
-      if (_que.empty())
+      if (this->que.empty())
       {
         return -1;
       }
       std::lock_guard<std::mutex> guard(q_t_mutex);
-      _que.pop();
-      return _que.front();
+      this->que.pop();
+      return this->que.front();
     }
 
     void q_push(const int& item)
     {
-      _que.push(item);
+      this->que.push(item);
     }
 
     void q_clear()
     {
       std::lock_guard<std::mutex> guard(q_t_mutex);
-      while (!_que.empty()) {
-        _que.pop();
+      while (!this->que.empty()) {
+        this->que.pop();
       }
     }
 
@@ -77,7 +77,7 @@ namespace SIMQ {
       t1.join();
       t2.join();
       std::unique_ptr<std::queue<int>> tmp_q = std::make_unique<std::queue<int>>();
-      *tmp_q = _que;
+      *tmp_q = this->que;
       int q = 0;
       std::cout << "Printing the queue." << std::endl;
       while (!tmp_q->empty())
@@ -89,7 +89,7 @@ namespace SIMQ {
       std::cout << "t3 clears the queue." << std::endl;
       std::thread t3 = std::thread(&simple_thread::q_clear, this);
       t3.join();
-      if (_que.empty())
+      if (this->que.empty())
       {
         std::cout << "The queue is now empty." << std::endl;
       }
@@ -100,7 +100,7 @@ namespace SIMQ {
     }
 
   public:
-    std::queue<int> _que;
+    std::queue<int> que;
 
   };
 

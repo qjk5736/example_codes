@@ -4,7 +4,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
+            "command": "C:/msys64/mingw64/bin/g++.exe",
             "args": [
                 "-I.",
                 "-Wall",
