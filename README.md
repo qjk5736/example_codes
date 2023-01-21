@@ -24,7 +24,7 @@ A few example programs.
 ## matrix_multiply
 
 	The code in multiply_row_major_vectors.cpp performs a 
-	mulitplication of arbitrarily sized matrices represented 
+	multiplication of arbitrarily sized matrices represented 
 	as row major vectors. The multiplication is timed using chrono.
 
 ## simple_thread_test
