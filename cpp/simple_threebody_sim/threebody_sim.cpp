@@ -92,7 +92,7 @@ namespace TBDY {
 				this->r_vec[j] += this->residual[j][i] * this->residual[j][i];
 			}
 			// f'() = (-)G*M*m/(r^3/2), residual term is included in the position update.
-			this->func[j] = -G * this->mass[k] * this->mass[j] / (this->r_vec[j] * std::sqrt(this->r_vec[j]));
+			this->func[j] = -GRAV_CONST * this->mass[k] * this->mass[j] / (this->r_vec[j] * std::sqrt(this->r_vec[j]));
 		}
 		for (j = 0; j < NUMBER_OF_BODIES; j++)
 		{
@@ -121,7 +121,7 @@ namespace TBDY {
 				this->vel[j][i] = std::atoi(argv[arg_index + 2]);
 				arg_index++;
 			}
-			this->mass[j] = M;
+			this->mass[j] = 10*j;
 		}
 		this->N = std::atoi(argv[arg_index]);
 	}
@@ -150,12 +150,12 @@ namespace TBDY {
 		this->vel[2][0] = 65.25;
 		this->vel[2][1] = -37.50;
 		this->vel[2][2] = 0;
-		// mass vector (M1, M2, M3)
-		this->mass[0] = M;
-		this->mass[1] = M;
-		this->mass[2] = M;
+		// mass vector (M1, M2, M3) kg
+		this->mass[0] = 10;
+		this->mass[1] = 20;
+		this->mass[2] = 30;
 		// Number of steps to simulate.
-		this->N = 100;
+		this->N = 10000;
 	}
 
 	void threebody_sim::run_simulation(int argc, char** argv)

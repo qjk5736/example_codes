@@ -33,12 +33,11 @@
 
 namespace TBDY{
 
-const double DT = 0.01;						// Incremental time update 
-const double M = 1.;							// Set mass to 1. for simplification
-const double G = 1200000.;				// Universal gravitational constant
-const int NUMBER_OF_BODIES = 3;		// Number of bodies == 3
-const int DOF_PER_BODY = 3;				// x, y, z per body
-const int MEASUREMENT_AXES = 2;   // No z axis in this sim. Always at 0 in initialization.
+const double DT = 0.001;					        // Incremental time update seconds
+const double GRAV_CONST = 6.674E-11;       // Gravitational constant newtons*meter*meter/
+const int NUMBER_OF_BODIES = 3;		        // Number of bodies == 3
+const int DOF_PER_BODY = 3;				        // x, y, z per body
+const int MEASUREMENT_AXES = 2;           // Only x and y coordinates from measuremnts.
 
 class threebody_sim
 {
@@ -47,10 +46,10 @@ public:
   threebody_sim();
   threebody_sim(int number_of_steps, std::string filnam);
   ~threebody_sim() = default;
-  threebody_sim(const threebody_sim& other) = default;            // copy constructor
-  threebody_sim(threebody_sim&& other) = default;                 // move constructor
-  threebody_sim& operator=(const threebody_sim& other) = default; // copy assignment
-  threebody_sim& operator=(threebody_sim&& other) = default;      // move assignment
+  threebody_sim(const threebody_sim& other) = delete;            // copy constructor
+  threebody_sim(threebody_sim&& other) = delete;                 // move constructor
+  threebody_sim& operator=(const threebody_sim& other) = delete; // copy assignment
+  threebody_sim& operator=(threebody_sim&& other) = delete;      // move assignment
 
   void run_simulation(int argc, char** argv);
 
