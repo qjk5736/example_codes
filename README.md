@@ -27,6 +27,10 @@ A few example programs.
 	multiplication of arbitrarily sized matrices represented 
 	as row major vectors. The multiplication is timed using chrono.
 
+## openmp_test
+	Using OpenMP along with std::tuple, a templated function and 
+	mutex with lock_guard. A json file for build and test is included.
+
 ## simple_thread_test
 	Using std::thread to control manipulation of a std::queue.
 
