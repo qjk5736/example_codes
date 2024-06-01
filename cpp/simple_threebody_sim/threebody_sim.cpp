@@ -190,7 +190,12 @@ namespace TBDY {
 
 int main(int argc, char** argv)
 {
-	std::unique_ptr<TBDY::threebody_sim> sim = std::make_unique<TBDY::threebody_sim>(100,"threebody_positions_06252002.dat");
+	time_t t = time(0);
+	char buffer [80];
+	strftime (buffer,80,"%Y%m%d",localtime( & t ));
+	std::string filnam(buffer);
+	filnam = filnam + "_threebody_positions.dat";
+	std::unique_ptr<TBDY::threebody_sim> sim = std::make_unique<TBDY::threebody_sim>(100,filnam);
 	sim->run_simulation(argc, argv);
 	return 0;
 }
